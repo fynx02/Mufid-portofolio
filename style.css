@@ -192,6 +192,81 @@ nav .navLinks li a{
     gap: 10px;
     align-items: center;
 }
+
+/* Animated gradient + glow for hero buttons (Download CV + contact) */
+.btn-group .btn{
+    position: relative;
+    overflow: hidden;
+    /* keep existing styles, only add overlay behavior */
+}
+
+/* moving gradient overlay */
+.btn-group .btn::after{
+    content: "";
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(90deg, rgba(122, 252, 255, 0.0), rgba(122, 252, 255, 0.55), rgba(0, 180, 255, 0.0));
+    transform: translateX(-100%);
+    opacity: 0.0;
+    transition: opacity 200ms ease;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* blurred glow layer */
+.btn-group .btn::before{
+    content: "";
+    position: absolute;
+    inset: -14px;
+    background: radial-gradient(circle at center, rgba(122, 252, 255, 0.55), transparent 40%);
+    opacity: 0;
+    z-index: 0;
+    filter: blur(14px);
+    transition: opacity 200ms ease;
+    pointer-events: none;
+}
+
+.btn-group .btn{
+    z-index: 1;
+    /* ensure text stays above pseudo layers */
+}
+.btn-group .btn > *{
+    position: relative;
+    z-index: 1;
+}
+
+.btn-group .btn:hover::after,
+.btn-group .btn:focus::after{
+    opacity: 1;
+    animation: btnGradientSlide 900ms linear infinite;
+}
+
+.btn-group .btn:hover::before,
+.btn-group .btn:focus::before{
+    opacity: 0.9;
+}
+
+@keyframes btnGradientSlide{
+    0%{ transform: translateX(-120%); }
+    100%{ transform: translateX(120%); }
+}
+
+/* keyboard focus */
+.btn-group .btn:focus{
+    outline: 3px solid rgba(122, 252, 255, 0.20);
+    outline-offset: 2px;
+}
+
+/* reduce motion */
+@media (prefers-reduced-motion: reduce){
+    .btn-group .btn::after{
+        animation: none !important;
+        transition: none;
+    }
+    .btn-group .btn::before{
+        transition: none;
+    }
+}
 /* Responsive desain dan displaying navbar for small screen*/
 @media(max-width: 930px)
 {
