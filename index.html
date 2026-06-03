@@ -6,10 +6,79 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Portofolio pribadi</title>
         <link rel="stylesheet" href="style.css">
+        <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css'>
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap'>
         <!-- Font Awesome cdm font icon css-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     </head>
     <body>
+        <nav class="sidebar close">
+          <header>
+            <div class="image-text">
+              <span class="image">
+                <img src="gambar/mufid_m.jpeg" alt="Logo">
+              </span>
+              <div class="text logo-text">
+                <span class="name">Engineering Software</span>
+                <span class="profession">Web developer</span>
+              </div>
+            </div>
+            <i class='bx bx-chevron-right toggle'></i>
+          </header>
+          <div class="menu-bar">
+            <div class="menu">
+              <li class="search-box">
+                <i class='bx bx-search icon'></i>
+                <input type="text" placeholder="Search...">
+              </li>
+              <ul class="menu-links">
+                <li class="nav-link">
+                  <a href="#">
+                    <i class='bx bx-home-alt icon'></i>
+                    <span class="text nav-text">Home</span>
+                  </a>
+                </li>
+                <li class="nav-link">
+                  <a href="#">
+                    <i class='bx bx-briefcase-alt icon'></i>
+                    <span class="text nav-text">Portofolio</span>
+                  </a>
+                </li>
+                <li class="nav-link">
+                  <a href="#">
+                    <i class='bx bx-file icon'></i>
+                    <span class="text nav-text">Resume</span>
+                  </a>
+                </li>
+                <li class="nav-link">
+                  <a href="#">
+                    <i class='bx bx-book icon'></i>
+                    <span class="text nav-text">Blog</span>
+                  </a>
+                </li>
+                <li class="nav-link">
+                  <a href="#">
+                    <i class='bx bx-user icon'></i>
+                    <span class="text nav-text">About Me</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="bottom-content">
+              <li class="mode">
+                <div class="sun-moon">
+                  <i class='bx bx-moon icon moon'></i>
+                  <i class='bx bx-sun icon sun'></i>
+                </div>
+                <span class="mode-text text">Dark mode</span>
+                <div class="toggle-switch">
+                  <span class="switch"></span>
+                </div>
+              </li>
+            </div>
+          </div>
+        </nav>
+        <section class="home">
         <div class="hero-header">
              <div class="wrapper">
                 <header>
@@ -17,20 +86,9 @@
                         <span class="logo-initial">M</span>
                         <div class="logo-text">Mufid Al Faaiz Ali Usman</div>
                     </div>
-                    <nav>
-                        <div class="togglebtn">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div> 
-                        <ul class="navLinks">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Portofolio</a></li>
-                            <li><a href="#">Resume</a></li>
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">Tentang Saya</a></li>
-                        </ul>
-                    </nav>
+                    <div class="mobile-sidebar-toggle">
+                        <i class='bx bx-menu'></i>
+                    </div>
                 </header>
                 <div class="container">
                     <div class="hero-pic">
@@ -60,24 +118,9 @@
                 </div>
              </div>
         </div>
+        </section>
         <!-- typed js untuk efek ketik -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
-        <script>
-            /** buat tombol klik tampilkan/sembunyikan navbar **/
-            var togglebtn = document.querySelector(".togglebtn");
-            var nav = document.querySelector(".navLinks");
-
-            togglebtn.addEventListener("click", function(){
-                this.classList.toggle("click");
-                nav.classList.toggle("open");
-            })
-
-            var typed = new Typed(".input", {
-                strings: ["Siswa SMK TELKOM BANDUNG", "kelas 10 PPLG 1", "Siap Untuk dibimbing menuju lebih baik"],
-                typeSpeed: 100,
-                backSpeed: 55,
-                loop: true
-            })
-        </script>
+        <script src="script.js"></script>
     </body>
     </html>
