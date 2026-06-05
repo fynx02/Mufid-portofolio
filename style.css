@@ -399,6 +399,69 @@ nav .navLinks li a{
         margin-bottom: 12px;
     }
 
+/* Intro lines background (subtle animated lines/drops) */
+#introLines {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0.18;
+  z-index: 0;
+}
+
+.intro-line {
+  position: absolute; width: 1px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 20%, rgba(255,255,255,0.8) 80%, rgba(255,255,255,0) 100%);
+  animation: lineAppear 1.5s ease-out forwards;
+}
+.intro-line.from-bottom {
+  background: linear-gradient(to top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 20%, rgba(255,255,255,0.8) 80%, rgba(255,255,255,0) 100%);
+}
+@keyframes lineAppear {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.intro-drop {
+  position: absolute; width: 8px; height: 8px;
+  background: rgba(255,255,255,0.9); border-radius: 50%;
+  left: 50%; transform: translateX(-50%); filter: blur(0.5px);
+}
+.intro-drop::before {
+  content: ''; position: absolute; width: 2px; height: 12px;
+  left: 50%; transform: translateX(-50%);
+}
+.intro-drop.drop-down::before { top: -12px; background: linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,0)); }
+.intro-drop.drop-up::before   { bottom: -12px; background: linear-gradient(to top, rgba(255,255,255,0.9), rgba(255,255,255,0)); }
+.intro-drop.drop-down { animation: dropMoveDown var(--duration) linear infinite; animation-delay: var(--delay); }
+.intro-drop.drop-up   { animation: dropMoveUp   var(--duration) linear infinite; animation-delay: var(--delay); }
+
+@keyframes dropMoveDown { from { top: -20px; opacity: 0; } 5% { opacity: 1; } 95% { opacity: 1; } to { top: 100%; opacity: 0; } }
+@keyframes dropMoveUp   { from { bottom: -20px; opacity: 0; } 5% { opacity: 1; } 95% { opacity: 1; } to { bottom: 100%; opacity: 0; } }
+
+.intro-line-horizontal {
+  position: absolute; height: 1px;
+  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 20%, rgba(255,255,255,0.8) 80%, rgba(255,255,255,0) 100%);
+  animation: lineAppear 1.5s ease-out forwards;
+}
+.intro-line-horizontal.from-right {
+  background: linear-gradient(to left, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 20%, rgba(255,255,255,0.8) 80%, rgba(255,255,255,0) 100%);
+}
+
+.intro-drop-horizontal {
+  position: absolute; width: 8px; height: 8px;
+  background: rgba(255,255,255,0.9); border-radius: 50%;
+  top: 50%; transform: translateY(-50%); filter: blur(0.5px);
+}
+.intro-drop-horizontal::before { content: ''; position: absolute; width: 12px; height: 2px; top: 50%; transform: translateY(-50%); }
+.intro-drop-horizontal.drop-right::before { left: -12px;  background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.9)); }
+.intro-drop-horizontal.drop-left::before  { right: -12px; background: linear-gradient(to left,  rgba(255,255,255,0), rgba(255,255,255,0.9)); }
+.intro-drop-horizontal.drop-right { animation: dropMoveRight var(--duration) linear infinite; animation-delay: var(--delay); }
+.intro-drop-horizontal.drop-left  { animation: dropMoveLeft  var(--duration) linear infinite; animation-delay: var(--delay); }
+
+@keyframes dropMoveRight { from { left: -20px; opacity: 0; }  5% { opacity: 1; } 95% { opacity: 1; } to { left: 100%;  opacity: 0; } }
+@keyframes dropMoveLeft  { from { right: -20px; opacity: 0; } 5% { opacity: 1; } 95% { opacity: 1; } to { right: 100%; opacity: 0; } }
+
     .hero-text p{
         font-size: 13px;
         line-height: 1.4;
@@ -425,6 +488,70 @@ nav .navLinks li a{
         margin-right: 8px;
     }
 }
+
+
+/* Intro lines background (subtle animated lines/drops) */
+#introLines {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0.18;
+  z-index: 0;
+}
+
+.intro-line {
+  position: absolute; width: 1px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 20%, rgba(255,255,255,0.8) 80%, rgba(255,255,255,0) 100%);
+  animation: lineAppear 1.5s ease-out forwards;
+}
+.intro-line.from-bottom {
+  background: linear-gradient(to top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 20%, rgba(255,255,255,0.8) 80%, rgba(255,255,255,0) 100%);
+}
+@keyframes lineAppear {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.intro-drop {
+  position: absolute; width: 8px; height: 8px;
+  background: rgba(255,255,255,0.9); border-radius: 50%;
+  left: 50%; transform: translateX(-50%); filter: blur(0.5px);
+}
+.intro-drop::before {
+  content: ''; position: absolute; width: 2px; height: 12px;
+  left: 50%; transform: translateX(-50%);
+}
+.intro-drop.drop-down::before { top: -12px; background: linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,0)); }
+.intro-drop.drop-up::before   { bottom: -12px; background: linear-gradient(to top, rgba(255,255,255,0.9), rgba(255,255,255,0)); }
+.intro-drop.drop-down { animation: dropMoveDown var(--duration) linear infinite; animation-delay: var(--delay); }
+.intro-drop.drop-up   { animation: dropMoveUp   var(--duration) linear infinite; animation-delay: var(--delay); }
+
+@keyframes dropMoveDown { from { top: -20px; opacity: 0; } 5% { opacity: 1; } 95% { opacity: 1; } to { top: 100%; opacity: 0; } }
+@keyframes dropMoveUp   { from { bottom: -20px; opacity: 0; } 5% { opacity: 1; } 95% { opacity: 1; } to { bottom: 100%; opacity: 0; } }
+
+.intro-line-horizontal {
+  position: absolute; height: 1px;
+  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 20%, rgba(255,255,255,0.8) 80%, rgba(255,255,255,0) 100%);
+  animation: lineAppear 1.5s ease-out forwards;
+}
+.intro-line-horizontal.from-right {
+  background: linear-gradient(to left, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 20%, rgba(255,255,255,0.8) 80%, rgba(255,255,255,0) 100%);
+}
+
+.intro-drop-horizontal {
+  position: absolute; width: 8px; height: 8px;
+  background: rgba(255,255,255,0.9); border-radius: 50%;
+  top: 50%; transform: translateY(-50%); filter: blur(0.5px);
+}
+.intro-drop-horizontal::before { content: ''; position: absolute; width: 12px; height: 2px; top: 50%; transform: translateY(-50%); }
+.intro-drop-horizontal.drop-right::before { left: -12px;  background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.9)); }
+.intro-drop-horizontal.drop-left  { right: -12px; background: linear-gradient(to left,  rgba(255,255,255,0), rgba(255,255,255,0.9)); }
+.intro-drop-horizontal.drop-right { animation: dropMoveRight var(--duration) linear infinite; animation-delay: var(--delay); }
+.intro-drop-horizontal.drop-left  { animation: dropMoveLeft  var(--duration) linear infinite; animation-delay: var(--delay); }
+
+@keyframes dropMoveRight { from { left: -20px; opacity: 0; }  5% { opacity: 1; } 95% { opacity: 1; } to { left: 100%;  opacity: 0; } }
+@keyframes dropMoveLeft  { from { right: -20px; opacity: 0; } 5% { opacity: 1; } 95% { opacity: 1; } to { right: 100%; opacity: 0; } }
 
 :root {
   --body-color: #e4e9f7;
